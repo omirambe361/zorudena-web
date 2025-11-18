@@ -14,16 +14,6 @@ class Blog(models.Model):
 
 
 
-class Program(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    image = models.ImageField(upload_to='program_images/', blank=True, null=True)
-    category = models.CharField(max_length=100, blank=True, null=True)
-
-    def __str__(self):
-        return self.title
-
-
 class ProgramCategory(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -32,11 +22,10 @@ class ProgramCategory(models.Model):
         return self.name
 
 class Program(models.Model):
-     # Set the default category ID here (change 1 to your real ID)
     category = models.ForeignKey(
         ProgramCategory,
         on_delete=models.CASCADE,
-        related_name='programs'  # This is important
+        related_name='programs'
     )
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
@@ -50,7 +39,6 @@ class Program(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
 
 class PartnerRequest(models.Model):
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
