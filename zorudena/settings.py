@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'payments',#Your custom app
-    'main',
+    'zorudena.main', 
     
 ]
 
