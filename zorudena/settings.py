@@ -17,8 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ['zorudena.org','localhost','127.0.0.1','zorudena-website-production-fbf7.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://zorudena.org','https://zorudena-website-production-fbf7.up.railway.app']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','zorudena.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://zorudena.up.railway.app']
 
 # Application definition
 
@@ -30,8 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'payments',#Your custom app
-    'zorudena.main', 
-    
+       
 ]
 
 MIDDLEWARE = [
@@ -79,17 +78,17 @@ WSGI_APPLICATION = 'zorudena.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'YtkcGBDCYGdcTfuNagorZCiCiAejHzvg',
-        'HOST': 'maglev.proxy.rlwy.net',
-        'PORT': '47392',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
