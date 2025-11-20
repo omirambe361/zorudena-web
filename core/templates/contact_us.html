@@ -21,9 +21,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
  <style>
-  body {
-     font-family: "Roboto", sans-serif;
-  }
+  * {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Roboto",sans-serif;
+}
+
 
   .navbar-light .navbar-nav .nav-link.active,
   .navbar-light .navbar-nav .nav-link:hover {
@@ -89,22 +98,20 @@
   <nav class="navbar navbar-light py-1 px-4 px-md-5 " style="font-size: 1rem;">
     <div class="container-fluid d-flex justify-content-between align-items-center">
           <!-- Logo (Left) -->
-    <a class="navbar-brand me-auto" href="#">
-      <img src="https://i.ibb.co/zhMCfxYR/3dca4dc8-a7bc-4b9b-a31c-19cbaa815244-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 60px;">
-      <label for="" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:600;font-style: normal;font-size:2rem;color: #00703c;">ZORUDENA UG</label>
+    <a class="navbar-brand me-auto" href="#" style="align-items: center;display: flex;">
+      <img src="https://i.ibb.co/zhMCfxYR/3dca4dc8-a7bc-4b9b-a31c-19cbaa815244-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 50px;">
+      <label for="" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:600;font-style: normal;font-size:2rem;color: #00703c;padding-left: 12px;">ZORUDENA UG</label>
     </a>
     
       <!-- Social Media Links (Left) -->
       <div class="me-3">
-        <a href="#" class="text-dark me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;color: #6c757d;"><i class="bi bi-facebook" style="color: #00703c;"></i></a>
-        <a href="#" class="text-dark me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;color: #6c757d;"><i class="bi bi-twitter" style="color: #00703c;"></i></a>
-        <a href="#" class="text-dark me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;color: #6c757d;"><i class="bi bi-instagram" style="color: #00703c;"></i></a>
+        <a href="#" class="text-light me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;"><i class="bi bi-facebook" style="color: grey;border-radius: 50%;padding: 4px;"></i></a>
       </div>
   
       <!-- Contact Info (Right) -->
       <div class="text-end small">
-        <span class="me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;color: #6c757d;"><i class="bi bi-telephone-fill" style="color: #00703c;"></i> +256785394282</span>
-        <span  style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1rem;color: #6c757d;"><i class="bi bi-envelope-fill" style="color: #00703c;"></i> info.zorudenauganda2019@gmail.com</span>
+        <span class="me-3" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:600;font-style: normal;font-size: 1rem;"><i class="bi bi-telephone-fill" style="color: grey;border-radius: 50%;padding: 4px;"></i> +256785394282</span>
+        <span  style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:600;font-style: normal;font-size: 1rem;"><i class="bi bi-envelope-fill" style="border-radius: 50%;padding: 4px;color: grey;"></i> zorudenadevelopmentfoundation@gmail.com</span>
       </div>
     </div>
   </nav>
@@ -135,7 +142,7 @@
           <a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:500;font-style: normal;font-size:1.0625rem;">Blog</a>
         </li>
         <li class="nav-item px-2">
-          <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact_us' %}" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:500;font-style: normal;font-size:1.0625rem;">Contact Us</a>
+          <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:500;font-style: normal;font-size:1.0625rem;">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -203,12 +210,17 @@
               </li>
               <li class="mb-3">
                 <i class="bi bi-envelope-fill me-2" style="color: #00703c;"></i>
-                <strong>Email:</strong> <a style="color: hsl(0, 90%, 54%);" href="mailto:opaksolo@gmail.com">info.zorudenauganda2019@gmail.com</a>
+                <strong>Email:</strong> <a style="color: hsl(0, 90%, 54%);text-decoration: none;" href="mailto:opaksolo@gmail.com">zorudenadevelopmentfoundation@gmail.com </a><span>/</span>
+                <strong></strong> <a style="color: hsl(0, 90%, 54%);text-decoration: none;margin-left: 88px;" href="mailto:opaksolo@gmail.com">jacksonoting80@gmail.com</a>
               </li>
+              
               <li class="mb-3">
                 <i class="bi bi-telephone-fill me-2" style="color: #00703c;"></i>
-                <strong>Phone:</strong> <a style="color: hsl(0, 90%, 54%);" href="tel:+256726264977">+256785394282</a>
+                <strong>Phone:</strong> <a style="color: hsl(0, 90%, 54%);text-decoration: none;" href="tel:+256726264977">+256785394282</a><span>/</span><br>
+                <strong></strong> <a style="color: hsl(0, 90%, 54%);text-decoration: none;margin-left: 88px;" href="mailto:opaksolo@gmail.com">+256787756606</a>
               </li>
+
+              
             </ul>
             <div class="mt-4">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -233,14 +245,14 @@
   <div class="container p-4" style="font-size: 1rem;">
     <div class="row align-items-center justify-content-between g-3">
       <div class="col-12 col-md-auto mb-3 mb-md-0">
-           <img src="https://i.ibb.co/zhMCfxYR/3dca4dc8-a7bc-4b9b-a31c-19cbaa815244-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 60px;">
+           <img src="https://i.ibb.co/zhMCfxYR/3dca4dc8-a7bc-4b9b-a31c-19cbaa815244-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 50px;">
       </div>
       <div class="col-12 col-md">
         <ul class="nav justify-content-center justify-content-md-start flex-wrap">
           <li class="nav-item"><a href="{% url 'about_us' %}" class="nav-link px-2 text-white" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size:1.0625rem;">About Us</a></li>
           <li class="nav-item"><a href="{% url 'programs' %}" class="nav-link px-2 text-white" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1.0625rem;">Our Programs</a></li>
           <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link px-2 text-white" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1.0625rem;">Blogs</a></li>
-          <li class="nav-item"><a href="{% url 'contact_us' %}" class="nav-link px-2 text-white" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1.0625rem;">Contact Us</a></li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-white" style="font-family:Montserrat, sans-serif;font-optical-sizing: auto;font-weight:400;font-style: normal;font-size: 1.0625rem;">Contact Us</a></li>
         </ul>
       </div>
       <div class="col-12 col-md-auto">
