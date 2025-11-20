@@ -131,6 +131,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # Folder where collectstatic collects fi
 
 # Optional: tell WhiteNoise to compress static files and add caching headers
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+WHITENOISE_MAX_AGE = 0
+
 
 
 
