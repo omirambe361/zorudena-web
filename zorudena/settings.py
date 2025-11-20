@@ -130,7 +130,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Folder where collectstatic collects files
 
 # Optional: tell WhiteNoise to compress static files and add caching headers
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 
 
 STATICFILES_DIRS = [BASE_DIR / "zorudena" / "static"]  # ✅ this is important
