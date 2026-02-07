@@ -24,6 +24,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'zorudena.up.railway.app',
+    'zorudena-website-production-fbf7.up.railway.app',  # <-- add this
     'zorudena.org',
     'www.zorudena.org'
 ]
@@ -95,13 +96,33 @@ WSGI_APPLICATION = 'zorudena.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+# DATABASES = {
+    # 'default': dj_database_url.parse(
+        # os.getenv("DATABASE_URL"),
+        # conn_max_age=600,
+        # ssl_require=True
+    # )
+# }
+
+# DATABASE CONFIGURATION
+# ----------------------
+
+if DEBUG:  # Local development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',  # Local SQLite database
+        }
+    }
+else:  # Production (Railway Postgres)
+    DATABASES = {
+        'default': dj_database_url.parse(
+            os.getenv("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
